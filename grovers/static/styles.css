@@ -1,49 +1,59 @@
-/* styles.css */
-.center-image {
+/* Common styles for centering elements */
+.center-image,
+.centered-text {
   display: block;
   margin: 0 auto;
+  text-align: center;
 }
 
-.centered-text {
-    text-align: center;
-    
-}
-
+/* Common styles for text alignment and color */
 .purple-text {
-    text-align: center;
-            color: #ccb0f7;
-        }
+  text-align: center;
+  color: #ccb0f7;
+}
 
+/* Define common colors as CSS variables */
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #45a049;
+  --background-color-index: #ccb0f7;
+  --background-color-test: #95b9ed;
+  --background-color-applications: #e38705;
+  --background-color-algorithm: #02a365;
+  --background-color-intro: #0a0273;
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Page-specific styles */
 body.index-page {
-
-  /* Define the gradient using linear-gradient with three colors */
-  background-image: linear-gradient(to bottom, #5102a6, #e9c7ff, #ffffff);
-  background-color: #ccb0f7;
+  background-image: linear-gradient(to bottom, #5102a6, var(--background-color-index), #ffffff);
 }
 
 body.test-page {
-    background-image: linear-gradient(to bottom, #0289cc, #bae8ff, #ffffff);
-    background-color: #95b9ed;
+  background-image: linear-gradient(to bottom, #0289cc, var(--background-color-test), #ffffff);
 }
 
 body.applications-page {
-    background-image: linear-gradient(to bottom, #fc9f1c, #fcd092, #ffffff);
-    background-color: #e38705;
+  background-image: linear-gradient(to bottom, #fc9f1c, var(--background-color-applications), #ffffff);
 }
 
 body.algorithm-page {
-    background-image: linear-gradient(to bottom, #11bf7c, #88d1b5, #ffffff);
-    background-color: #02a365;
+  background-image: linear-gradient(to bottom, #11bf7c, var(--background-color-algorithm), #ffffff);
 }
 
 body.intro-page {
-    background-image: linear-gradient(to bottom, #4138ba, #716bbf, #ffffff);
-    background-color: #0a0273;
+  background-image: linear-gradient(to bottom, #4138ba, var(--background-color-intro), #ffffff);
 }
 
+/* Common button styles */
 .custom-button {
   /* Button background color */
-  background-color: #4CAF50;
+  background-color: var(--primary-color);
   /* Button text color */
   color: white;
   /* Add some padding to make the button bigger */
@@ -52,59 +62,59 @@ body.intro-page {
   border-radius: 4px;
   /* Add a hover effect when the mouse is over the button */
   transition: background-color 0.3s ease;
+  /* Remove default button styles */
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .custom-button:hover {
-  background-color: #45a049;
+  background-color: var(--secondary-color);
 }
 
-
-
+/* Header styles */
 .hero {
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 }
 
 .navbar {
-    margin: 30px auto;
-    display: flex;
-    align-items: center;
-    
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
 }
 
-ul{
-    flex: 1;
-    text-align: right;
+ul {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-ul li{
-    display: inline-block;
-    list-style: none;
-    margin: 0 25px;
-    
+ul li {
+  margin-left: 25px;
 }
 
-ul li a{
-    
-    text-decoration: none;
-    color: #ffffff;
-    padding: 0 10px;
-    position: relative;
+ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 0 10px;
+  position: relative;
 }
 
 ul li a::after {
-    content: '';
-    width: 0;
-    height: 10px;
-    background: #ffffff;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -35px;
-    transition: 0.5s;
-    
+  content: '';
+  width: 0;
+  height: 10px;
+  background: #ffffff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -35px;
+  transition: 0.5s;
 }
-
 ul li a:hover::after {
-    width: 100%;
+  width: 100%;
 }
