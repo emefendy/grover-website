@@ -13,16 +13,87 @@
 :root {
   --primary-color: #001489;
   --secondary-color: #767676;
-  --background-color-index: #9fddf9;
-  --background-color-test: #9fddf9;
-  --background-color-applications: #9fddf9;
-  --background-color-algorithm: #9fddf9;
-  --background-color-intro: #9fddf9;
+  --background-color-index: #0a509e;
+  --background-color-test: #0a509e;
+  --background-color-applications: #0a509e;
+  --background-color-algorithm: #0a509e;
+  --background-color-intro: #0a509e;
 }
-
 body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
   margin: 0;
   padding: 0;
+}
+.navbar-container {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.navbar {
+  background-color: #221559;
+  padding: 10px 0; /* Slightly thicker padding */
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.navbar li {
+  margin: 0 20px;
+}
+.navbar a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  transition: color 0.3s;
+  padding: 8px 15px; /* Adjust padding for more comfortable spacing */
+  border-radius: 5px; /* Rounded corners for a nicer look */
+}
+.navbar a:hover {
+  color: #f8f9fa;
+  background-color: rgba(255, 255, 255, 0.1); /* Slight background color on hover */
+}
+.hero {
+  padding: 100px 0;
+  text-align: center;
+}
+.hero p {
+  font-family: 'EB Garamond', serif;
+  font-size: 72px; /* Adjust the size as needed */
+  color: #221559;
+  margin-bottom: 20px;
+}
+.quote {
+  font-size: 18px;
+  color: #777;
+  margin-top: 10px;
+}
+.centered-text {
+  text-align: center;
+}
+.content-section {
+  font-size: 20px;
+  color: #333;
+  margin: 50px auto;
+  max-width: 800px;
+}
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f8f9fa;
 }
 
 body.index-page {
@@ -120,6 +191,7 @@ ul li a:hover::after {
   opacity: 1;
 }
 
+/* Centering and Animations */
 .center-image,
 .centered-text {
   display: block;
@@ -143,11 +215,13 @@ ul li a:hover::after {
   }
 }
 
+/* Specific Page Styles */
 .rice-blue-text {
   text-align: center;
   color: #001489;
 }
 
+/* Buttons */
 .custom-button {
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -159,8 +233,10 @@ ul li a:hover::after {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Content Animation */
 .page-content {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeSlideIn 1s forwards, bounce 1s ease-in-out 0.5s alternate;
 }
+
