@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Updated Grover's Algorithm</title>
+    <title>Grover's Algorithm</title>
 </head>
 <body>
     <h1>Grover's Algorithm</h1>
@@ -24,7 +24,59 @@
     <!-- Include the Qiskit.js library -->
     <script src="https://cdn.jsdelivr.net/npm/qiskit@0.30.0/qiskit.umd.min.js"></script>
     
-    <!-- Include your JavaScript code -->
-    <script src="grovers.js"></script>
+    <script>
+        // Replace 'YOUR_API_KEY' with your actual IBM Quantum Experience API key
+        const apiKey = '919bb509bde0516ebde71cf37e303d78de9e1cb04210edb4a34608c7a3afaa71c15cd33707f81c6c2668941d88787cfd4eba0b27c637b300f11d49399b908044';
+        
+        // Initialize the IBM Quantum provider
+        const token = apiKey;
+        IBMQ.enableAccount(token);
+        
+        // Function to run Grover's algorithm and update the results
+        async function runGrover(device, expression) {
+            try {
+                const provider = new IBMQ.Provider(); // Initialize the provider
+                
+                // Construct the oracle and problem
+                const oracle = new qiskit.CircuitLibrary.PhaseOracle(expression);
+                const problem = new qiskit.Algorithms.AmplificationProblem(
+                    oracle,
+                    (bitstring) => oracle.evaluateBitstring(bitstring)
+                );
+                
+                // Choose the backend device
+                const backend = provider.getBackend(device);
+                
+                // Initialize the quantum instance
+                const quantumInstance = new qiskit.QuantumInstance(backend);
+                
+                // Run Grover's algorithm
+                const result = await qiskit.Algorithms.Grover.amplify(problem, quantumInstance);
+                const counts = result.getCircuitResults();
+                
+                // Display the results
+                displayResults(counts);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+        
+        // Function to handle user input and initiate Grover's algorithm
+        function initiateGrover() {
+            const device = document.getElementById('device').value;
+            const expression = document.getElementById('expression').value;
+            runGrover(device, expression);
+        }
+        
+        // Function to display the results in the 'result' div
+        function displayResults(counts) {
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = 'Result: ' + JSON.stringify(counts);
+        }
+        
+        // Add event listener to 'runButton' to initiate Grover's algorithm
+        const runButton = document.getElementById('runButton');
+        runButton.addEventListener('click', initiateGrover);
+    </script>
 </body>
 </html>
