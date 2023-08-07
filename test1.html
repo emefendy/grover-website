@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grover's Algorithm</title>
+</head>
+<body>
+    <h1>Grover's Algorithm</h1>
+    
+    <label for="device">Select Backend Device:</label>
+    <select id="device">
+        <option value="ibmq_qasm_simulator">IBMQ Qasm Simulator</option>
+        <!-- Add more backend options here -->
+    </select>
+    
+    <label for="expression">Enter Oracle Expression:</label>
+    <input type="text" id="expression">
+    
+    <button id="runButton">Run Grover's Algorithm</button>
+    
+    <div id="result"></div>
+
+    <!-- Include the Qiskit.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/qiskit@0.30.0/qiskit.umd.min.js"></script>
+    
+    <!-- Include your JavaScript code -->
+    <script src="your-script.js"></script>
+</body>
+</html>
