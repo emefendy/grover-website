@@ -1,5 +1,3 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -19,7 +17,7 @@
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
     
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=REM&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
 
 
@@ -28,11 +26,11 @@
       <div class = "hero">
           <div class = "navbar">
               <ul>
-              <li><a href="{% url 'index' %}" >Home</a></li>
-              <li><a href="{% url 'intro' %}">Introduction</a></li>
-              <li><a href="{% url 'algorithm' %}">The Algorithm</a></li>
-              <li><a href="{% url 'applications' %}">Real-World Applications</a></li>
-              <li><a href="{% url 'test' %}">Test it Out!</a></li>
+              <li><a href="index.html" >Home</a></li>
+              <li><a href="intro.html">Introduction</a></li>
+              <li><a href="algorithm.html">The Algorithm</a></li>
+              <li><a href="applications.html">Real-World Applications</a></li>
+              <li><a href="test.html">Test it Out!</a></li>
                 </ul>
               </div>
           </div>
@@ -52,7 +50,7 @@
            <p>Let's take a closer look at some of the real-life applications k-SAT problems can model.</p>
            <div style="display: flex; justify-content: space-between; padding: 50px;">
                <div style="padding-left: 50px; text-align: center; font-size: 20px">
-               <img src="{% static 'DNA.png' %}" alt="DNA" width="250">
+               <img src="DNA.png" alt="DNA" width="250">
                    <p>Identifying protein codons accurately is significant in the medical field.</p>
                    </div>
                <div style="padding-left: 100px; font-size: 20px">
@@ -62,7 +60,7 @@
            </div>
            <div style="display: flex; justify-content: space-between; padding: 50px;">
                <div style="padding-left: 50px; text-align: center; font-size: 20px">
-               <img src="{% static 'weather.png' %}" alt="weather" width="250">
+               <img src="weather.png" alt="weather" width="250">
                    <p>Weather pattern tracking is important for airplane pilots, to environmental reserachers, to everyday citizens.</p>
                    </div>
                <div style="padding-left: 100px; font-size: 20px">
@@ -72,7 +70,7 @@
                </div>
            <div style="display: flex; justify-content: space-between; padding: 50px;">
                <div style="padding-left: 50px; text-align: center; font-size: 20px">
-               <img src="{% static 'route.png' %}" alt="route" width="250">
+               <img src="route.png" alt="route" width="250">
                    <p>Navigation apps are essential in our everyday lives.</p>
                    </div>
                <div style="padding-left: 100px; font-size: 20px">
