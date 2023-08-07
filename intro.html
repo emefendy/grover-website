@@ -19,7 +19,7 @@
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
     
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=REM&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
         <style>
             .container {
@@ -37,11 +37,11 @@
       <div class = "hero">
           <div class = "navbar">
               <ul>
-              <li><a href="{% url 'index' %}" >Home</a></li>
+              <li><a href="index.html" >Home</a></li>
               <a href="intro.html">Intro</a>
-              <li><a href="{% url 'algorithm' %}">The Algorithm</a></li>
-              <li><a href="{% url 'applications' %}">Real-World Applications</a></li>
-              <li><a href="{% url 'test' %}">Test it Out!</a></li>
+              <li><a href="algorithm.html">The Algorithm</a></li>
+              <li><a href="applications.html">Real-World Applications</a></li>
+              <li><a href="test.html">Test it Out!</a></li>
                 </ul>
               </div>
           </div>
@@ -78,14 +78,6 @@
         <div style="padding-left: 30px; font-size: 20px">
            <h3>What does the future look like for quantum computing? </h3>
            <p> As researchers continue to refine hardware and algorithms, quantum computers can tackle increasingly complex problems in fields like cryptography, drug discovery, material science, and optimization, revolutionizing industries by solving problems that are currently beyond the reach of classical computers. While practical large-scale quantum computers are still in their infancy, innovation and breakthroughs continue as more research focuses on quantum computing. </p>
-           <br><br><br>
-           <p>Still interested? Read to learn more:</p>
-           </div>
-       </div>
-       <div class="container">
-           <embed class="pdf-embed" src="Proposed Application.pdf" type="application/pdf" width = 750px height = 500px>
-               <embed class="pdf-embed" src="Suspected Advantages.pdf" type="application/pdf" width = 750px height = 500px>
-          </div>
        <br><br><br><br>
    </body>
 </html>
