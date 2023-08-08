@@ -4,17 +4,16 @@
     <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
 </head>
 <body>
-    <label for="expressionInput">Enter Logical Expression:</label>
+    <label for="expressionInput">Enter Logical Expression!:</label>
     <input type="text" id="expressionInput" placeholder="e.g. (a & b) | (~c)">
-    <button id="runButton">Run Grover's Search!</button>
+    <button id="runButton">Run Grover's Search</button>
     <div id="result"></div>
 
     <script>
         async function runGroverSearch() {
             const expression = document.getElementById('expressionInput').value;
 
-            // Load Pyodide
-            await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.21.3/full/' });
+            const pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.21.3/full/' });
 
             const groversCode = `
 from qiskit import BasicAer, execute
@@ -50,7 +49,7 @@ counts
             }
         }
 
-        // Load Pyodide and run Grover's search when the button is clicked
+        // Attach the runGroverSearch function to the button click event
         document.getElementById('runButton').addEventListener('click', runGroverSearch);
     </script>
 </body>
