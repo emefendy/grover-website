@@ -4,18 +4,22 @@
     <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
 </head>
 <body>
+    <label for="expressionInput">Enter Logical Expression:</label>
+    <input type="text" id="expressionInput" placeholder="e.g. (a & b) | (~c)">
     <button id="runButton">Run Grover's Search</button>
     <div id="result"></div>
 
     <script>
         async function runGroverSearch() {
+            const expression = document.getElementById('expressionInput').value;
+            
             const groversCode = `
 from qiskit import BasicAer, execute
 from qiskit.aqua import QuantumInstance
 from qiskit.aqua.algorithms import Grover
 from qiskit.aqua.components.oracles import LogicalExpressionOracle
 
-expression = "your_logical_expression_here"
+expression = "${expression}"
 num_qubits = 4
 
 # Create an instance of the oracle
