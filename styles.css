@@ -11,13 +11,13 @@
 }
 
 :root {
-  --primary-color: #001489;
+  --primary-color: #9fddf9;
   --secondary-color: #767676;
-  --background-color-index: #0a509e;
-  --background-color-test: #0a509e;
-  --background-color-applications: #0a509e;
-  --background-color-algorithm: #0a509e;
-  --background-color-intro: #0a509e;
+  --background-color-index: #9fddf9;
+  --background-color-test: #9fddf9;
+  --background-color-applications: #9fddf9;
+  --background-color-algorithm: #9fddf9;
+  --background-color-intro: #9fddf9;
 }
 body {
   font-family: 'Lato', sans-serif;
@@ -33,7 +33,7 @@ body {
 }
 
 .navbar {
-  background-color: #221559;
+  /*background-color: #221559;*/
   padding: 10px 0; /* Slightly thicker padding */
   position: absolute;
   top: 0;
@@ -56,7 +56,7 @@ body {
 }
 .navbar a {
   text-decoration: none;
-  color: #ffffff;
+  color: #0A509E;
   font-weight: 600;
   transition: color 0.3s;
   padding: 8px 15px; /* Adjust padding for more comfortable spacing */
@@ -97,23 +97,23 @@ body {
 }
 
 body.index-page {
-  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-index), #4d9ad4);
+  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-index), #9fddf9);
 }
 
 body.test-page {
-  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-test), #4d9ad4);
+  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-test), #9fddf9);
 }
 
 body.applications-page {
-  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-applications), #4d9ad4);
+  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-applications), #9fddf9);
 }
 
 body.algorithm-page {
-  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-algorithm), #4d9ad4);
+  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-algorithm), #9fddf9);
 }
 
 body.intro-page {
-  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-intro), #4d9ad4);
+  background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-intro), #9fddf9);
 }
 
 .custom-button {
