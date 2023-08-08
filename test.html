@@ -55,10 +55,13 @@
       
 <script>
     (async () => {
-        const pyodide = await loadPyodide();
+      const pyodide = await loadPyodide();
 
-       // Preload the Qiskit library
-        await pyodide.loadPackage('qiskit');
+       // Install qiskit using micropip
+      await pyodide.runPythonAsync(`
+         import micropip
+         await micropip.install(['qiskit'])
+      `);
         
         // Your grovers Python code
         const groversCode = `
