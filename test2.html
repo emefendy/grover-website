@@ -4,53 +4,62 @@
     <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
 </head>
 <body>
-    <label for="expressionInput">Enter Logical Expression!:</label>
-    <input type="text" id="expressionInput" placeholder="e.g. (a & b) | (~c)">
-    <button id="runButton">Run Grover's Search</button>
-    <div id="result"></div>
-
+    <button onclick="runGroverSearch()">Run Grover Search</button>
     <script>
         async function runGroverSearch() {
-            const expression = document.getElementById('expressionInput').value;
+            await loadPyodide();
 
-            const pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.21.3/full/' });
+            // Install Qiskit Terra using micropip
+            const qiskitTerraWheel = 'qiskit_terra-0.25.0-cp38-abi3-macosx_11_0_arm64.whl';
+            await pyodide.loadPackage(qiskitTerraWheel);
 
-            const groversCode = `
-from qiskit import BasicAer, execute
-from qiskit.aqua import QuantumInstance
-from qiskit.aqua.algorithms import Grover
-from qiskit.aqua.components.oracles import LogicalExpressionOracle
+            // Import necessary Qiskit modules
+            const qiskit = pyodide.pyimport('qiskit');
 
-expression = "${expression}"
-num_qubits = 4
+            // Define the Grover's Search algorithm function
+            const groversAlgorithm = `
+                def grovers_algorithm():
+                    from qiskit import QuantumCircuit, transpile, assemble, Aer
+                    from qiskit.visualization import plot_histogram
 
-# Create an instance of the oracle
-oracle = LogicalExpressionOracle(expression)
+                    # Define the oracle
+                    oracle = QuantumCircuit(2)
+                    oracle.cz(0, 1)
 
-# Create an instance of the Grover algorithm
-grover = Grover(oracle=oracle)
+                    # Define the diffusion operator
+                    diffusion = QuantumCircuit(2)
+                    diffusion.h([0, 1])
+                    diffusion.z([0, 1])
+                    diffusion.cz(0, 1)
+                    diffusion.h([0, 1])
 
-# Choose the local simulator backend
-backend = BasicAer.get_backend('qasm_simulator')
-quantum_instance = QuantumInstance(backend, shots=1024)
+                    grover_circuit = QuantumCircuit(2, 2)
+                    grover_circuit.h([0, 1])
+                    grover_circuit.barrier()
+                    grover_circuit.append(oracle, [0, 1])
+                    grover_circuit.append(diffusion, [0, 1])
+                    grover_circuit.measure([0, 1], [0, 1])
 
-# Run the Grover algorithm
-result = grover.run(quantum_instance)
+                    # Simulate the circuit
+                    simulator = Aer.get_backend('qasm_simulator')
+                    compiled_circuit = transpile(grover_circuit, simulator)
+                    qobj = assemble(compiled_circuit, shots=1024)
+                    result = simulator.run(qobj).result()
+                    counts = result.get_counts(grover_circuit)
 
-counts = result['measurement']
-counts
-`;
+                    return counts
 
-            try {
-                const result = await pyodide.runPythonAsync(groversCode);
-                document.getElementById('result').innerHTML = `Result: ${result}`;
-            } catch (error) {
-                console.error(error);
-            }
+                grovers_algorithm()
+            `;
+
+            // Run the Grover's Search algorithm function and display the result
+            const result = await pyodide.runPythonAsync(groversAlgorithm);
+            console.log(result);
         }
 
-        // Attach the runGroverSearch function to the button click event
-        document.getElementById('runButton').addEventListener('click', runGroverSearch);
+        async function loadPyodide() {
+            self.pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.21.3/full/' });
+        }
     </script>
 </body>
 </html>
