@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-       
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
@@ -19,7 +20,7 @@
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
     
-    <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=REM&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
         <style>
             .container {
@@ -34,18 +35,21 @@
 
    </head>
    <body class="intro-page">
+    <div class="page-content">
+        <div class="navbar-container">
       <div class = "hero">
           <div class = "navbar">
               <ul>
-              <li><a href="index.html" >Home</a></li>
-              <a href="intro.html">Intro</a>
-              <li><a href="algorithm.html">The Algorithm</a></li>
-              <li><a href="applications.html">Real-World Applications</a></li>
-              <li><a href="test.html">Test it Out!</a></li>
+                <li><a href="index.html" >Home</a></li>
+                <li> <a href="intro.html">Intro</a></li>
+               <li> <a href="algorithm.html">The Algorithm</a></li>
+                <li><a href="applications.html">Real-World Applications</a></li>
+                 <li> <a href="test2.html">Test it out!</a></li>
                 </ul>
+                </div>
+              </div>
               </div>
           </div>
-    
        
        <div style="text-align: center; font-size: 20px; font-family: 'Lato', sans-serif; font-weight: 300;" >
            <br>
@@ -59,12 +63,12 @@
            <p>Quantum computing is different from traditional computers in that it processes information differently. In traditional computers, we have bits with values of either 0 or 1 that are used to represent information. Rather than silicon-based chips that traditional computers use, quantum computers rely on subatomic particles such as neutral atoms. Since electron energies are quantized, we can represent values in these quantum bits, or "qubits", based on the energy levels of electrons. These qubits can exhibit superposition and entanglement. These properties allow for parallel processing, making many important algorithms like Grover's search algorithm possible. Quantum computers have the potential to revolutionize a vast array of fields by offering solutions to problems that are not feasible using classical computers.</p>
            <div style="display: flex; justify-content: space-between; padding: 125px;">
                <div style="padding-left: 20px; text-align: center; font-size: 20px">
-               <img src="lovgrover.png" alt="Grover" width="250">
+               <img src="{% static 'lovgrover.png' %}" alt="Grover" width="250">
                    <p>Dr. Lov Grover</p>
                    </div>
                    <div style="padding-left: 20px; font-size: 20px">
                        <div style="padding-left: 20px; text-align: center; font-size: 20px">
-                       <img src="sesamestreet.png" alt="Grover" width="200">
+                       <img src="{% static 'sesamestreet.png' %}" alt="Grover" width="200">
                            <p>(NOT this Grover...)</p>
                            </div>
                     </div>
@@ -78,6 +82,14 @@
         <div style="padding-left: 30px; font-size: 20px">
            <h3>What does the future look like for quantum computing? </h3>
            <p> As researchers continue to refine hardware and algorithms, quantum computers can tackle increasingly complex problems in fields like cryptography, drug discovery, material science, and optimization, revolutionizing industries by solving problems that are currently beyond the reach of classical computers. While practical large-scale quantum computers are still in their infancy, innovation and breakthroughs continue as more research focuses on quantum computing. </p>
+           <br><br><br>
+           <p>Still interested? Read to learn more:</p>
+           </div>
+       </div>
+       <div class="container">
+           <embed class="pdf-embed" src="{% static 'Proposed Application.pdf' %}#toolbar=0" type="application/pdf" width = 750px height = 500px>
+               <embed class="pdf-embed" src="{% static 'Suspected Advantages.pdf' %}#toolbar=0" type="application/pdf" width = 750px height = 500px>
+          </div>
        <br><br><br><br>
    </body>
 </html>
