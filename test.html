@@ -1,4 +1,3 @@
-{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +16,10 @@
       <link href="css/business-frontpage.css" rel="stylesheet">
    -->
       <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    
+       <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
     
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+      
     <link href="https://fonts.googleapis.com/css2?family=REM&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
         
         <style>
@@ -53,6 +53,49 @@
               </div>
           </div>
       
+<script>
+    (async () => {
+        const pyodide = await loadPyodide();
+        
+        // Your grovers Python code
+        const groversCode = `
+import json
+from qiskit import IBMQ
+from qiskit.utils import QuantumInstance
+from qiskit.circuit.library import PhaseOracle
+from qiskit.algorithms import Grover, AmplificationProblem
+
+# Enable IBMQ account
+IBMQ.enable_account('919bb509bde0516ebde71cf37e303d78de9e1cb04210edb4a34608c7a3afaa71c15cd33707f81c6c2668941d88787cfd4eba0b27c637b300f11d49399b908044')
+provider = IBMQ.get_provider(hub='ibm-q')
+
+# Extract data from the request
+body_unicode = request.body.decode('utf-8')
+body = json.loads(body_unicode)
+device = body['device']
+expression = body['expression']
+
+# Get the backend and create the oracle and problem
+backend = provider.get_backend(device)
+oracle = PhaseOracle(expression)
+problem = AmplificationProblem(oracle=oracle, is_good_state=oracle.evaluate_bitstring)
+
+# Run Grover's algorithm and get the results
+grover = Grover(quantum_instance=backend)
+result = grover.amplify(problem)
+counts = result.circuit_results
+
+# Return the results as a JSON response
+response = {'result': str(counts)}
+response
+        `;
+        
+        // Execute the grovers Python code
+        const result = await pyodide.runPythonAsync(groversCode);
+        console.log(result);
+    })();
+</script>
+
       
       <script>
          function generate() {
