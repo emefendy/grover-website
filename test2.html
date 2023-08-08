@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+</head>
+<body>
+    <button id="runButton">Run Grover's Search</button>
+    <div id="result"></div>
+
+    <script>
+        async function runGroverSearch() {
+            const groversCode = `
+from qiskit import BasicAer, execute
+from qiskit.aqua import QuantumInstance
+from qiskit.aqua.algorithms import Grover
+from qiskit.aqua.components.oracles import LogicalExpressionOracle
+
+expression = "your_logical_expression_here"
+num_qubits = 4
+
+# Create an instance of the oracle
+oracle = LogicalExpressionOracle(expression)
+
+# Create an instance of the Grover algorithm
+grover = Grover(oracle=oracle)
+
+# Choose the local simulator backend
+backend = BasicAer.get_backend('qasm_simulator')
+quantum_instance = QuantumInstance(backend, shots=1024)
+
+# Run the Grover algorithm
+result = grover.run(quantum_instance)
+
+counts = result['measurement']
+counts
+`;
+
+            try {
+                const result = await pyodide.runPythonAsync(groversCode);
+                document.getElementById('result').innerHTML = `Result: ${result}`;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // Load Pyodide and run Grover's search when the button is clicked
+        document.getElementById('runButton').addEventListener('click', runGroverSearch);
+    </script>
+</body>
+</html>
