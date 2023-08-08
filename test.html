@@ -55,8 +55,10 @@
       
 <script>
     (async () => {
-      const pyodide = await loadPyodide();
+      const pyodide = await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.21.3/full/' });
 
+       // Load the micropip package
+      await pyodide.loadPackage(['micropip']);
        // Install qiskit using micropip
       await pyodide.runPythonAsync(`
          import micropip
