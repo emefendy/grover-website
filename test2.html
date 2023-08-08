@@ -12,7 +12,10 @@
     <script>
         async function runGroverSearch() {
             const expression = document.getElementById('expressionInput').value;
-            
+
+            // Load Pyodide
+            await loadPyodide({ indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.21.3/full/' });
+
             const groversCode = `
 from qiskit import BasicAer, execute
 from qiskit.aqua import QuantumInstance
