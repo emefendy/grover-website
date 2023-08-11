@@ -20,11 +20,24 @@
   --background-color-intro: #9fddf9;
 }
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: var(--font-primary);
   font-weight: 300;
   margin: 0;
   padding: 0;
 }
+
+.banner-container {
+  text-align: center; /* Center the banner image horizontally */
+  padding: 0; /* Add some spacing around the banner */
+  margin-top: -20px;
+}
+
+.banner-image {
+  max-width: 100%; /* Ensure the image fits within the container */
+  height: auto; /* Maintain the image's aspect ratio */
+}
+
+
 .navbar-container {
   position: relative;
   display: flex;
@@ -71,11 +84,11 @@ body {
   text-align: center;
 }
 .hero p {
-  font-family: 'EB Garamond', serif;
-  font-size: 72px; /* Adjust the size as needed */
-  color: #221559;
-  margin-bottom: 20px;
+  font-size: 48px; /* Adjusted size for responsiveness */
+  margin-bottom: 10px; /* Smaller margin for compactness */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
 }
+
 .quote {
   font-size: 18px;
   color: #777;
@@ -88,13 +101,21 @@ body {
   font-size: 20px;
   color: #333;
   margin: 50px auto;
-  max-width: 800px;
+  max-width: 1000px; /* Increased max-width for larger screens */
+  position: relative;
+  z-index: 1;
 }
+
 .footer {
   text-align: center;
-  padding: 20px 0;
+  padding: 40px 0; /* Increased padding for better separation */
   background-color: #f8f9fa;
 }
+
+.footer p {
+  font-size: 14px; /* Slightly smaller font size for the footer text */
+}
+
 
 body.index-page {
   background-image: linear-gradient(to bottom, #9fddf9, var(--background-color-index), #9fddf9);
@@ -121,15 +142,16 @@ body.intro-page {
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
-  transition: background-color 0.3s ease;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .custom-button:hover {
   background-color: var(--secondary-color);
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 body {
   font-family: 'EB Garamond', serif;
@@ -201,6 +223,11 @@ ul li a:hover::after {
   transform: translateY(20px);
   animation: fadeSlideIn 1s forwards, bounce 1s ease-in-out 0.5s alternate;
 }
+.animation-fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 1s forwards, bounce 1s ease-in-out 0.5s alternate;
+}
 
 @keyframes fadeSlideIn {
   to {
@@ -215,6 +242,7 @@ ul li a:hover::after {
   }
 }
 
+
 /* Specific Page Styles */
 .rice-blue-text {
   text-align: center;
@@ -223,15 +251,20 @@ ul li a:hover::after {
 
 /* Buttons */
 .custom-button {
+  background-color: #ffffff; /* White background */
+  color: var(--primary-color);
+  padding: 12px 24px; /* Larger padding for more presence */
+  border-radius: 8px; /* Slightly rounded corners */
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .custom-button:hover {
-  background-color: var(--secondary-color);
+  background-color: #f0f0f0; /* Slight background change on hover */
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
+
 
 /* Content Animation */
 .page-content {
