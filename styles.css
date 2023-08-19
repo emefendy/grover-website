@@ -104,16 +104,19 @@ body {
   max-width: 1000px; /* Increased max-width for larger screens */
   position: relative;
   z-index: 1;
+  padding: 60px 0; /* Increase vertical padding for better separation */
+  background-color: #f8f8f8; /* Add a subtle background color */
+  border-radius: 10px; /* Rounded corners for a softer look */
 }
 
 .footer {
   text-align: center;
   padding: 40px 0; /* Increased padding for better separation */
-  background-color: #f8f9fa;
+  background-color: #f0f0f0;
 }
 
 .footer p {
-  font-size: 14px; /* Slightly smaller font size for the footer text */
+  font-size: 16px; /* Slightly smaller font size for the footer text */
 }
 
 
@@ -256,8 +259,14 @@ ul li a:hover::after {
   padding: 12px 24px; /* Larger padding for more presence */
   border-radius: 8px; /* Slightly rounded corners */
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.custom-button:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 223, 249, 0.5); /* Add custom focus highlight */
+}
+
 
 .custom-button:hover {
   background-color: #f0f0f0; /* Slight background change on hover */
@@ -271,5 +280,19 @@ ul li a:hover::after {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeSlideIn 1s forwards, bounce 1s ease-in-out 0.5s alternate;
+}
+
+@media (max-width: 768px) {
+  /* Styles for smaller screens */
+  .navbar ul {
+    flex-direction: column;
+    /* ... other adjustments ... */
+  }
+}
+
+.centered-element {
+  /* ... existing styles ... */
+  animation: fadeSlideIn 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards,
+    bounce 1s ease-in-out 0.5s alternate;
 }
 
