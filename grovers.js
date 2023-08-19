@@ -1,5 +1,5 @@
 // JavaScript code for running Grover's algorithm using Qiskit.js
-
+import { gsap } from "gsap";
 const IBMQ = require('ibm-q'); // Include the Qiskit.js library
 
 // Initialize the IBM Quantum provider
@@ -51,3 +51,15 @@ function displayResults(counts) {
 // Add event listener to a button to initiate Grover's algorithm
 const runButton = document.getElementById('runButton');
 runButton.addEventListener('click', initiateGrover);
+
+const elementToAnimate = document.querySelector(".animation-element");
+
+// Create an animation using GSAP
+gsap.from(elementToAnimate, {
+  opacity: 0,
+  y: 20,
+  duration: 1,
+  delay: 0.5,
+  ease: "power3.out",
+});
+
