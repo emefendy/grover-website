@@ -28,29 +28,12 @@ html, body {
   font-family: 'EB Garamond', serif;
 }
 
-
-
-
-
-
-
-
-
 /* Font styles */
 .font {
   font-size: 36px;
   font-weight: bold;
   color: #221559;
 }
-
-
-
-
-
-
-
-
-
 
 /* Footer styles */
 .footer {
@@ -139,6 +122,8 @@ body {
   align-items: center;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
+
+
 
 .navbar ul {
   list-style: none;
@@ -380,6 +365,22 @@ ul li a:hover::after {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
+/* Styled button */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #9fddf9; /* Light blue background */
+  color: #fff; /* White text color */
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.button:hover {
+  background-color: #6ca1d7; /* Slightly darker blue on hover */
+}
+
 
 /* Content Animation */
 .page-content {
@@ -402,3 +403,18 @@ ul li a:hover::after {
     bounce 1s ease-in-out 0.5s alternate;
 }
 
+/* Improved section titles */
+.section-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #001489; /* Rice University blue color */
+  font-weight: bold;
+  text-transform: uppercase; /* Uppercase text */
+}
+
+
+.animation-fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards, bounce 1s ease-in-out 0.5s alternate;
+}
