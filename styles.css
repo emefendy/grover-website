@@ -418,3 +418,11 @@ ul li a:hover::after {
   transform: translateY(20px);
   animation: fadeSlideIn 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards, bounce 1s ease-in-out 0.5s alternate;
 }
+
+.divider {
+  width: 50px;
+  height: 3px;
+  background-color: #001489; /* Rice University blue color */
+  margin: 20px auto;
+}
+
