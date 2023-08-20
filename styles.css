@@ -14,6 +14,34 @@ html {
   scroll-behavior: smooth;
 }
 
+.image-container {
+  display: flex;
+  justify-content: center;
+  padding: 125px;
+}
+
+
+
+
+
+.image-container img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+  
+@media (max-width: 768px) {
+  .page-content {
+      grid-template-columns: 1fr; /* Single column for small screens */
+  }
+}
+
+
 
 :root {
   --primary-color: #9fddf9;
