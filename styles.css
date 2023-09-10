@@ -105,6 +105,7 @@ body {
 }
 
 
+
 .navbar-container {
   position: relative;
   display: flex;
@@ -217,15 +218,15 @@ body.intro-page {
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .custom-button:hover {
-  background-color: var(--secondary-color);
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 
 body {
@@ -298,11 +299,6 @@ ul li a:hover::after {
   transform: translateY(20px);
   animation: fadeSlideIn 1s forwards, bounce 1s ease-in-out 0.5s alternate;
 }
-.animation-fade-slide {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeSlideIn 1s forwards, bounce 1s ease-in-out 0.5s alternate;
-}
 
 @keyframes fadeSlideIn {
   to {
@@ -316,6 +312,7 @@ ul li a:hover::after {
     transform: translateY(-5px);
   }
 }
+
 
 
 /* Specific Page Styles */
@@ -340,6 +337,7 @@ ul li a:hover::after {
   background-color: #001489;
   margin: 20px auto;
 }
+
 
 
 
