@@ -456,19 +456,3 @@ ul li a:hover::after {
     width: 80%; /* Adjusted image width for mobile */
   }
 }
-.container {
-  display: flex; /* Use flexbox to arrange elements horizontally */
-  gap: 20px; /* Add some spacing between PDFs */
-}
-
-.pdf-embed {
-  width: 50%; /* Each PDF takes up 50% of the container's width */
-}
-
-.rounded-box {
-  background-color: #f5f5f5; /* Background color for the text box */
-  border-radius: 10px; /* Rounded corners */
-  padding: 20px; /* Add padding for spacing */
-  margin: 10px 0; /* Add margin for spacing between text boxes (top and bottom) */
-}
-
