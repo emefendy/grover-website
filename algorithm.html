@@ -1,110 +1,105 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-   <head>
+<head>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
-      <meta name="author" content="">
-     
-      <!-- Bootstrap core CSS -->
-    
-    
-   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
-      <link href="css/business-frontpage.css" rel="stylesheet">
-   -->
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    
-    
-      <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=REM&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .container {
+            display: flex; /* Use flexbox to arrange elements horizontally */
+            gap: 20px; /* Add some spacing between PDFs */
+        }
 
+        .pdf-embed {
+            width: 50%; /* Each PDF takes up 50% of the container's width */
+        }
 
-   </head>
-   <body class="algorithm-page">
-    <div class="page-content">
-      <div class="navbar-container">
-    <div class = "hero">
-        <div class = "navbar">
-            <ul>
-              <li><a href="index.html" >Home</a></li>
-              <li> <a href="intro.html">Intro</a></li>
-             <li> <a href="algorithm.html">The Algorithm</a></li>
-              <li><a href="applications.html">Real-World Applications</a></li>
-               <li> <a href="test2.html">Test it out!</a></li>
-              </ul>
-              </div>
-            </div>
+        .rounded-box {
+            background-color: #8DDBFF; /* Set to the desired blue color */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Add padding for spacing */
+            margin: 10px 0; /* Add margin for spacing between text boxes (top and bottom) */
+        }
+    </style>
+</head>
+<body class="algorithm-page">
+<div class="page-content">
+    <div class="navbar-container">
+        <div class="hero">
+            <div class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="intro.html">Intro</a></li>
+                    <li><a href="algorithm.html">The Algorithm</a></li>
+                    <li><a href="applications.html">Real-World Applications</a></li>
+                    <li><a href="test2.html">Test it out!</a></li>
+                </ul>
             </div>
         </div>
-    
-       
+    </div>
+</div>
 
-       
-       <div style="text-align: center; font-size: 20px; font-family: 'Lato', sans-serif; font-weight: 300;" >
-           <br>
-           <h1>THE ALGORITHM</h1>
-           <br>
-           </div>
-      
-        <div style="padding-left: 20px; font-size: 20px ">
-            
-           <p>Grover's Search Algorithm is a powerful quantum algorithm designed to solve unstructured search problems faster than classical computers. It was developed by Lov Grover in 1996 and is one of the most well-known quantum algorithms.</p>
-           <br><br><br>
-           
-           <div style="padding-left: 20px; text-align: center; font-size: 20px">
-           <img src="{% static 'groverdiagram.png' %}" alt="Grover" width="250">
-               <p>Grover's search algorithm.</p>
-               </div>
-           <br><br>
-         
-           <p>In classical computing, searching through an unsorted database for a specific item requires checking each item one by one, which takes linear time. On average, it will take N/2 searches to find the correct value. Grover's algorithm, on the other hand, can perform this search in roughly the square root of the number of items, <b>resulting in a quadratic speedup.</b> This exponential speedup becomes particularly significant for large databases.</p>
-           <br>
-           
-           <p>The algorithm works by utilizing quantum principles such as superposition and interference. It creates a quantum superposition of all possible states representing the items in the database. Then, it applies a series of quantum operations to amplify the amplitude of the correct item's state and reduce the amplitudes of incorrect states. This process effectively concentrates the probability of measuring the correct state. When the algorithm is run and the final measurement is made, the correct value has a high probability.
-           </p>
-           
-           <br><br><br>
-           <div style="padding-left: 20px; text-align: center; font-size: 20px">
-           <img src="{% static 'circuit.png' %}" alt="Grover" width="700">
-               </div>
-           
-           <br><br><br>
-           
-           <br>
-           
-           <p>Two important components of Grover's search algorithm are the oracle and diffuser operators:</p>
-           <br>
-           <p><b>Oracle Operator:</b>
-           The oracle operator is a quantum gate that marks the target solution/value to the search problem. The oracle is designed to amplify the amplitude of the target value while keeping the amplitude of other items close to zero.
-           The oracle reflects the amplitude of the target value across the x-axis, effectively inverting the sign of the amplitude. <b>This reflection amplifies the probability of measuring the target value while reducing the probability of measuring the other items.</b> The oracle achieves this by encoding the conditions for the marked items in the quantum state and modifying the amplitudes accordingly.</p>
-        
-           <p><b> Diffuser Operator:</b>
-          
-           The diffuser operator helps amplify the probability amplitude of the target value while suppressing the amplitude of other incorrect solutions. It acts as an amplification step to improve the chances of finding the target value after multiple iterations of applying the oracle and diffuser. The diffuser calculates the mean amplitude of all the outcomes and then performs a phase inversion about this mean amplitude. Since the oracle operator reflected the amplitude of the target value, the target value ends up with a higher amplitude when the diffuser operator is performed. As more and more iterations take place, the probability of the target value increases.
-           </p>
-          
-           <br>
-           
-           <div style="padding-left: 20px; text-align: center; font-size: 20px">
-           <img src="{% static 'iterations.gif' %}" alt="operator iteration" width="400">
-               <p>The probability of the correct target value increases with more iterations.</p>
-               </div>
+<div style="text-align: center; font-size: 20px; font-family: 'Lato', sans-serif; font-weight: 300;">
+    <br>
+    <h1>THE ALGORITHM</h1>
+    <br>
+</div>
 
-           <p>
-           
-           <br><br><br><br>
-           In Grover's search algorithm, the oracle and diffuser operators are applied iteratively. Each iteration involves applying the oracle followed by the diffuser. This process narrows down the search space and progressively increases the probability of measuring the target value in subsequent measurements.
-           </p>
-           
-           <br><br>
-          
-          
-       </div>
-     
-   </body>
+<!-- Rounded text boxes -->
+<div class="rounded-box">
+    <div style="padding-left: 20px; font-size: 20px;">
+        <p>Grover's Search Algorithm is a powerful quantum algorithm designed to solve unstructured search problems faster than classical computers. It was developed by Lov Grover in 1996 and is one of the most well-known quantum algorithms.</p>
+    </div>
+</div>
+
+<div class="rounded-box">
+    <div style="padding-left: 20px; text-align: center; font-size: 20px;">
+        <img src="{% static 'groverdiagram.png' %}" alt="Grover" width="250">
+        <p>Grover's search algorithm.</p>
+    </div>
+</div>
+
+<div class="rounded-box">
+    <div style="padding-left: 20px; font-size: 20px;">
+        <p>In classical computing, searching through an unsorted database for a specific item requires checking each item one by one, which takes linear time. On average, it will take N/2 searches to find the correct value. Grover's algorithm, on the other hand, can perform this search in roughly the square root of the number of items, <b>resulting in a quadratic speedup.</b> This exponential speedup becomes particularly significant for large databases.</p>
+    </div>
+</div>
+
+<div class="rounded-box">
+    <div style="padding-left: 20px; font-size: 20px;">
+        <p>The algorithm works by utilizing quantum principles such as superposition and interference. It creates a quantum superposition of all possible states representing the items in the database. Then, it applies a series of quantum operations to amplify the amplitude of the correct item's state and reduce the amplitudes of incorrect states. This process effectively concentrates the probability of measuring the correct state. When the algorithm is run and the final measurement is made, the correct value has a high probability.</p>
+    </div>
+</div>
+
+<div class="rounded-box">
+    <div style="padding-left: 20px; text-align: center; font-size: 20px;">
+        <img src="{% static 'circuit.png' %}" alt="Grover" width="700">
+    </div>
+</div>
+
+<div class="rounded-box">
+    <div style="padding-left: 20px; font-size: 20px;">
+        <p>Two important components of Grover's search algorithm are the oracle and diffuser operators:</p>
+        <p><b>Oracle Operator:</b> The oracle operator is a quantum gate that marks the target solution/value to the search problem. The oracle is designed to amplify the amplitude of the target value while keeping the amplitude of other items close to zero.</p>
+        <p><b>Diffuser Operator:</b> The diffuser operator helps amplify the probability amplitude of the target value while suppressing the amplitude of other incorrect solutions. It acts as an amplification step to improve the chances of finding the target value after multiple iterations of applying the oracle and diffuser. The diffuser calculates the mean amplitude of all the outcomes and then performs a phase inversion about this mean amplitude. Since the oracle operator reflected the amplitude of the target value, the target value ends up with a higher amplitude when the diffuser operator is performed.</p>
+    </div>
+</div>
+
+<div class="rounded-box">
+    <div style="padding-left: 20px; text-align: center; font-size: 20px;">
+        <img src="{% static 'iterations.gif' %}" alt="operator iteration" width="400">
+        <p>The probability of the correct target value increases with more iterations.</p>
+    </div>
+</div>
+
+<div style="padding-left: 20px; font-size: 20px;">
+    <p>In Grover's search algorithm, the oracle and diffuser operators are applied iteratively. Each iteration involves applying the oracle followed by the diffuser. This process narrows down the search space and progressively increases the probability of measuring the target value in subsequent measurements.</p>
+</div>
+
+</body>
 </html>
